@@ -24,6 +24,7 @@ class CheesesController < ApplicationController
   # POST /cheeses
   # POST /cheeses.json
   def create
+    authenticate_user!
     @cheese = Cheese.new(cheese_params)
 
     respond_to do |format|
@@ -40,6 +41,7 @@ class CheesesController < ApplicationController
   # PATCH/PUT /cheeses/1
   # PATCH/PUT /cheeses/1.json
   def update
+    authenticate_user!
     respond_to do |format|
       if @cheese.update(cheese_params)
         format.html { redirect_to @cheese, notice: 'Cheese was successfully updated.' }
@@ -54,6 +56,7 @@ class CheesesController < ApplicationController
   # DELETE /cheeses/1
   # DELETE /cheeses/1.json
   def destroy
+    authenticate_user!
     @cheese.destroy
     respond_to do |format|
       format.html { redirect_to cheeses_url, notice: 'Cheese was successfully destroyed.' }

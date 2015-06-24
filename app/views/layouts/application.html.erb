@@ -7,8 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <nav>
+      <%= react_component("Navigation", { logged_in: session[:user_id] }) %>
+    </nav>
+  </header>
+  <div class="container">
 
-<%= yield %>
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :users
 
   get 'login' => 'sessions#new'
-  post 'login' => 'sessions#create'
+  post 'login' => 'sessions#create', as: 'create_session'
   get 'logout' => 'sessions#destroy'
+  root 'cheeses#index'
 
 end

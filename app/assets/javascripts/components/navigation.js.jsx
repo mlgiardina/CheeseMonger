@@ -3,7 +3,8 @@
 
 var Navigation = React.createClass({
   render: function () {
-    return (
+    if (this.props.logged_in) {
+      return (
         <div>
           <NavLink name='Home' url='/' />
           <NavLink name='Sign Up' url='/users/new' />
@@ -11,7 +12,18 @@ var Navigation = React.createClass({
           <NavLink name='New Cheese' url='/cheeses/new' />
           <NavLink name='Logout' url='/logout' />
         </div>
+        );
+    } else {
+      return (
+        <div>
+            <NavLink name='Home' url='/' />
+            <NavLink name='Sign Up' url='/users/new' />
+            <NavLink name='Cheese Index' url='/cheeses' />
+            <NavLink name='New Cheese' url='/cheeses/new' />
+            <NavLink name='Log In' url='/login' />
+          </div>
       );
+    }
   },
 });
 

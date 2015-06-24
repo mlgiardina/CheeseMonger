@@ -3,18 +3,20 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_name(params[:username])
+    @cheeses = Cheese.all
+    @user = User.find_by_username(params[:username])
 
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.user_id
-      render json: { message: 'logged in!' }
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      render 'cheeses/index'
     else
       render json: { message: 'user does not exist' }, status: 404
     end
   end
 
   def destroy
+    @cheeses = Cheese.all
     session[:user_id] = nil
-    redirect_to logout_path
+    render 'cheeses/index'
   end
 end

@@ -14,7 +14,7 @@
   <tbody>
     <% @cheeses.each do |cheese| %>
       <tr>
-        <td><%= cheese.user %></td>
+        <td><%= cheese.user.username %></td>
         <td><%= cheese.name %></td>
         <td><%= link_to 'Show', cheese %></td>
         <td><%= link_to 'Edit', edit_cheese_path(cheese) %></td>
