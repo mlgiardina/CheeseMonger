@@ -7,10 +7,9 @@ var Navigation = React.createClass({
       return (
         <div>
           <NavLink name='Home' url='/' />
-          <NavLink name='Sign Up' url='/users/new' />
           <NavLink name='Cheese Index' url='/cheeses' />
           <NavLink name='New Cheese' url='/cheeses/new' />
-          <NavLink name='Logout' url='/logout' />
+          <NavLink name='Logout' url='/logout' className='btn btn-danger' />
         </div>
         );
     } else {
